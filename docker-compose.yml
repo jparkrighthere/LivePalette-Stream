@@ -1,0 +1,25 @@
+networks:
+  shared-network:
+    driver: bridge
+
+services:
+  node-app:
+    image: node-app
+    container_name: node-app
+    ports:
+      - "4000:4000"
+    networks:
+      - shared-network
+      
+  # nginx-stream:
+  #   image: nginx:latest
+  #   container_name: nginx-stream
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #     - ./default.conf:/etc/nginx/conf.d/default.conf
+  #   networks:
+  #     - shared-network
+  #   depends_on:
+  #     - node-app
